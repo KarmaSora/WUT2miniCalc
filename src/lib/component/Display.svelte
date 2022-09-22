@@ -1,13 +1,7 @@
 <script>
-
-lcd = null;
-memory = 0;
-let arithmetic = null; // Vilken beräkning som skall göras +,-, x eller /
-
-function init (){
-    lcd = document.getElementById('lcd');
-
-    
-}
-
+    import { counterValue } from "$lib/stores/counter.js";
 </script>
+
+<main>
+    <input type="text" id="lcd" disabled="disabled" />
+</main>
