@@ -6,7 +6,6 @@
      import {counterValue} from '$lib/stores/counter.js';
  
 </script>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <title> SvCalc</title>
