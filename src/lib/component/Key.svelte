@@ -1,6 +1,9 @@
 <script>
     import { counterValue } from "$lib/stores/counter.js";
 
+    let memory = 0; // Lagrat/gamlat värdet från display
+    let arithmetic = null; // Vilken beräkning som skall göras +,-, x eller /
+
     function buttonClick(e) {
         let btn = e.target.id; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
@@ -25,16 +28,9 @@
         }
     }
 
-    function addDigit(digit) {
-        // digits dekleration finns längre upp
-        lcd.value += digit; // adderar tal till lcd displayen, digit är siffran som finns efter bokstaven b   i idet på det valda knappen
-        counterValue = lcd.value;
-    }
-
     /** Rensar display */
     function clearLCD() {
         lcd.value = "";
-        isComma = false;
     }
     /** Rensar allt, reset */
     function memClear() {
@@ -48,25 +44,25 @@
             operator // switch case , ifall .... då ...
         ) {
             case "+": // ifall man klicker på + då ...
-                memory = lcd.value; // memory får värdet av displayen
+                memory = counterValue; // memory får värdet av displayen
                 clearLCD(); // displayen clearas
                 arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
                 break;
 
             case "-":
-                memory = lcd.value;
+                memory = counterValue;
                 clearLCD();
                 arithmetic = "-";
                 break;
 
             case "*":
-                memory = lcd.value;
+                memory = counterValue;
                 clearLCD();
                 arithmetic = "*";
                 break;
 
             case "/":
-                memory = lcd.value;
+                memory = counterValue;
                 clearLCD();
                 arithmetic = "/";
                 break;
@@ -80,26 +76,31 @@
             arithmetic // swich case för arthimatic.
         ) {
             case "+": // om arthimatic = '+',   (se längre upp  där det uppreps)
-                result = Number(memory) + Number(lcd.value); // varaibelen resultat på värdet av lcd och det gamla värdet som finns i memory. Number() är för att kunna räkna med decimaltal, hade kunnat använt paresInt(), eller paresfloat()
-                lcd.value = result; // resultatet sätts i lcd displayen.
+                result = Number(memory) + Number(counterValue); // varaibelen resultat på värdet av lcd och det gamla värdet som finns i memory. Number() är för att kunna räkna med decimaltal, hade kunnat använt paresInt(), eller paresfloat()
+                counterValue = result; // resultatet sätts i lcd displayen.
                 break;
 
             case "-":
-                result = Number(memory) - Number(lcd.value);
-                lcd.value = result;
+                result = Number(memory) - Number(counterValue);
+                counterValue = result;
                 break;
 
             case "*":
-                result = Number(lcd.value) * Number(memory);
-                lcd.value = result;
+                result = Number(counterValue) * Number(memory);
+                counterValue = result;
                 break;
 
             case "/":
-                result = Number(memory) / Number(lcd.value);
-                lcd.value = result;
+                result = Number(memory) / Number(counterValue);
+                counterValue = result;
                 break;
             default:
         }
+    }
+
+    function addComma() {
+        // en funktion för att tilläga  ett kommatecken till lcd displayen
+        lcd.value += ".";
     }
 </script>
 
@@ -119,12 +120,15 @@
     <button id="b3" on:click={buttonClick}>3</button>
     <button id="mul" on:click={setOperator}>x</button>
 
-    <button id="comma" on:click={buttonClick}>,</button>
+    <button id="comma" on:click={addComma}>,</button>
     <button id="b0" on:click={buttonClick}>0</button>
     <button id="enter" on:click={calculate}>=</button>
     <button id="div" on:click={setOperator}>/</button>
 
-    <button on:click={clearLCD} on:dblclick={memClear} id="clear" style="grid-column: span 4;"
-        >CLEAR</button
+    <button
+        on:click={clearLCD}
+        on:dblclick={memClear}
+        id="clear"
+        style="grid-column: span 4;">CLEAR</button
     >
 </section>
