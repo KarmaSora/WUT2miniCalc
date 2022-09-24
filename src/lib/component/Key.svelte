@@ -47,7 +47,7 @@
     <button id="b1"on:click={buttonClick}>1</button>
     <button id="b2"on:click={buttonClick}>2</button>
     <button id="b3"on:click={buttonClick}>3</button>
-    <button id="mulon:click={buttonClick}">x</button>
+    <button id="mul" on:click={buttonClick}>x</button>
 
     <button id="comma"on:click={buttonClick}>,</button>
     <button id="b0"on:click={buttonClick}>0</button>
