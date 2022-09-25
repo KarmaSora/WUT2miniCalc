@@ -33,7 +33,7 @@
 
     /** Rensar display */
     function clearLCD() {
-        lcdvalue = "";
+        lcd.value = "";
     }
     /** Rensar allt, reset */
     function memClear() {

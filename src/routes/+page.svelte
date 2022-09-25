@@ -19,10 +19,12 @@
 
 <body>
     <main>
-        <legend>
+        <fieldset>
             <Display />
             <Key />
-        </legend>
+        
+        </fieldset>
+          
   
     </main>
 </body>

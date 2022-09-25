@@ -17,7 +17,6 @@
 </script>
 
 <fieldset>
-    <legend>KeyBoard</legend>
     <input type="text" value={display} disabled />
     <keyBoard on:click = {updateDisplay}/>
  </fieldset>
