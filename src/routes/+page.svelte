@@ -19,9 +19,11 @@
 
 <body>
     <main>
-        
-    <Display />
-   <Key />
+        <legend>
+            <Display />
+            <Key />
+        </legend>
+  
     </main>
 </body>
 
