@@ -3,6 +3,7 @@
     import { counterValue } from "$lib/stores/counter.js";
 
     let arithmetic = null;
+    let memory = 0;
 
 
     function buttonClick(e) {
