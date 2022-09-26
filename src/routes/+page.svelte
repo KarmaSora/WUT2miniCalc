@@ -6,13 +6,14 @@
 
     let arithmetic = null;
     let memory = 0;
+    let lcd = 0;
 
     function buttonClick(e) {
-        let btn = e.target.id; //id för den tangent som tryckte ner
+        let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
         if (btn.substring(0, 1) === "b") {
             let digit = btn.substring(1, 2); // plockar ut siffran från id:et
-            lcd.value += digit; // skriver ut digit/ tal  genom att plocka talen från knabbar vas id har bokstaven b i form av en string
+            lcd += digit; // skriver ut digit/ tal  genom att plocka talen från knabbar vas id har bokstaven b i form av en string
         } else {
             // Inte en siffertangent, övriga tangenter.
             if (btn.substring(0, 1) === "a") {
@@ -113,17 +114,14 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link
-            rel="stylesheet"
-            href="/home/karam/Skrivbord/WUT/Te3b-WUT2/miniCalc/src/lib/global.css"
-        />
+        <link rel="stylesheet"  href="/home/karam/Skrivbord/WUT/Te3b-WUT2/miniCalc/src/lib/global.css" />
     </head>
 
     <body>
         <main>
             <article>
-                <Display />
-                <Key />
+                <Display display={lcd}/>
+                <Key on:click = {buttonClick} />
             </article>
         </main>
     </body>

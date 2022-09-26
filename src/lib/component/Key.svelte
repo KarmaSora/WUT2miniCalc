@@ -4,7 +4,7 @@
 
 </script>
 
-<section id="keyBoard">
+<section id="KeyBoard">
     <button value ="7" id="b7" on:click>7</button>
     <button value ="8"id="b8" on:click>8</button>
     <button value ="9"id="b9" on:click>9</button>

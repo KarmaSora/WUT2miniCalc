@@ -38,7 +38,7 @@ main {
 
   }
 
-  section#keyBoard {
+  section#KeyBoard {
     /** Grid eller liknade */
     display: grid;
     grid-template-columns: auto;
@@ -77,7 +77,7 @@ main {
 
 }
 
-#keyBoard>button {
+#KeyBoard>button {
   height: auto;
   width: auto;
   font-size: 6rem;
