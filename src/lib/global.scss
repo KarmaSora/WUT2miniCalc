@@ -1,70 +1,100 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
-    font-family: lcd;
-   // src: url(../font/SUBWT___.ttf);
+  font-family: lcd;
+  // src: url(../font/SUBWT___.ttf);
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
   //  background-image: url('../img/math.jpg');
-    background-size: cover;
+  background-size: cover;
 }
 
 main {
-    padding: 80px;
-    margin: auto;
-    width: 500px;
+  padding: 80px;
+  margin: auto;
+  width: 500px;
 
-    input {
-        width: 100%;
-        font-size: 3.5rem;
-        margin-bottom: 10px;
-        background-color: black;
-        color: green;
-        text-align: right;
-        padding: 10px 4px 10px 4px;
-        font-family: lcd;
-        border: 1px solid yellow;
-        border-radius: 4px;
-        height: 100px;
+  input {
+    width: 100%;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    background-color: black;
+    color: green;
+    text-align: right;
+    padding: 10px 4px 10px 4px;
+    font-family: lcd;
+    border: 1px solid yellow;
+    border-radius: 4px;
+    height: 100px;
 
+  }
+
+  section#keyBoard {
+    /** Grid eller liknade */
+    display: grid;
+    grid-template-columns: auto;
+
+
+    #add {
+      color: #0acee7;
     }
-    section#keyBoard {
-        /** Grid eller liknade */
-      display:grid;
-      grid-template-columns: auto;
+
+    #mul {
+
+      color: #0acee7;
     }
-    
+
+    #div {
+      color: #0acee7;
+    }
+
+    #sub {
+      color: #0acee7;
+    }
+
+    #enter {
+      color: #0acee7;
+    }
+
+    #clear {
+      color: #0acee7;
+    }
+
+    #comma {
+      color: #0acee7;
+    }
+  }
+
 
 }
-#keyBoard > button {
-    height: auto;
-    width: auto;
-    font-size: 6rem;
-  }
+
+#keyBoard>button {
+  height: auto;
+  width: auto;
+  font-size: 6rem;
+}
 
 
 @media (max-width: 767px) {
-   
 
-    main {
-      width:100vw;
-      padding:20px;
-      height:100vh;
+
+  main {
+    width: 100vw;
+    padding: 20px;
+    height: 100vh;
 
   }
 
-  
+
 }
 
-@media (max-width: 339px) {
-   
-}
+@media (max-width: 339px) {}

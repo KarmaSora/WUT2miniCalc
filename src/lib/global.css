@@ -38,6 +38,27 @@ main section#keyBoard {
   display: grid;
   grid-template-columns: auto;
 }
+main section#keyBoard #add {
+  color: #0acee7;
+}
+main section#keyBoard #mul {
+  color: #0acee7;
+}
+main section#keyBoard #div {
+  color: #0acee7;
+}
+main section#keyBoard #sub {
+  color: #0acee7;
+}
+main section#keyBoard #enter {
+  color: #0acee7;
+}
+main section#keyBoard #clear {
+  color: #0acee7;
+}
+main section#keyBoard #comma {
+  color: #0acee7;
+}
 
 #keyBoard > button {
   height: auto;
