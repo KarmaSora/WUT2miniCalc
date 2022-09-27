@@ -1,15 +1,16 @@
 <script>
     import "$lib/global.scss";
-    import Display from "../lib/component/Display.svelte";
-    import Key from "../lib/component/Key.svelte";
+    import Display from "$lib/component/Display.svelte";
+    import Key from "$lib/component/Key.svelte";
     import { counterValue } from "$lib/stores/counter.js";
 
     let arithmetic = null;
     let memory = 0;
-    let lcd = 0;
-
+    let lcd = "5";
+    
+       
     function buttonClick(e) {
-        let btn = e.target.value; //id för den tangent som tryckte ner
+        let btn = e.target.id; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
         if (btn.substring(0, 1) === "b") {
             let digit = btn.substring(1, 2); // plockar ut siffran från id:et
@@ -37,25 +38,25 @@
             operator // switch case , ifall .... då ...
         ) {
             case "+": // ifall man klicker på + då ...
-                memory = lcd.value; // memory får värdet av displayen
+                memory = lcd; // memory får värdet av displayen
                 clearLCD(); // displayen clearas
                 arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
                 break;
 
             case "-":
-                memory = lcd.value;
+                memory = lcd;
                 clearLCD();
                 arithmetic = "-";
                 break;
 
             case "*":
-                memory = lcd.value;
+                memory = lcd;
                 clearLCD();
                 arithmetic = "*";
                 break;
 
             case "/":
-                memory = lcd.value;
+                memory = lcd;
                 clearLCD();
                 arithmetic = "/";
                 break;
@@ -69,23 +70,23 @@
             arithmetic // swich case för arthimatic.
         ) {
             case "+": // om arthimatic = '+',   (se längre upp  där det uppreps)
-                result = Number(memory) + Number(lcd.value); // varaibelen resultat på värdet av lcd och det gamla värdet som finns i memory. Number() är för att kunna räkna med decimaltal, hade kunnat använt paresInt(), eller paresfloat()
-                lcd.value = result; // resultatet sätts i lcd displayen.
+                result = Number(memory) + Number(lcd); // varaibelen resultat på värdet av lcd och det gamla värdet som finns i memory. Number() är för att kunna räkna med decimaltal, hade kunnat använt paresInt(), eller paresfloat()
+                lcd= result; // resultatet sätts i lcd displayen.
                 break;
 
             case "-":
-                result = Number(memory) - Number(lcd.value);
-                lcd.value = result;
+                result = Number(memory) - Number(lcd);
+                lcd = result;
                 break;
 
             case "*":
-                result = Number(lcd.value) * Number(memory);
-                lcd.value = result;
+                result = Number(lcd) * Number(memory);
+                lcd = result;
                 break;
 
             case "/":
-                result = Number(memory) / Number(lcd.value);
-                lcd.value = result;
+                result = Number(memory) / Number(lcd);
+                lcd = result;
                 break;
             default:
         }

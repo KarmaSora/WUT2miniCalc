@@ -7,6 +7,6 @@
 
      </script>
      
-        <input type="text" id="lcd" disabled="disabled" value={display}/>
+        <input type="text" id="lcd" disabled="disabled" bind:value={display}/>
       
      
