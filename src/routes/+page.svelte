@@ -10,8 +10,16 @@
     
        
     function buttonClick(e) {
-        let btn = e.target.id; //id för den tangent som tryckte ner
+        let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
+        if(Number(btn) >= 0 && Number(btn) <10 ){
+           lcd += btn;
+        }
+
+
+
+        /* 
+                                                    Gammal Kod
         if (btn.substring(0, 1) === "b") {
             let digit = btn.substring(1, 2); // plockar ut siffran från id:et
             lcd += digit; // skriver ut digit/ tal  genom att plocka talen från knabbar vas id har bokstaven b i form av en string
@@ -30,7 +38,8 @@
             if (btn.substring(0, 1) === "d") {
                 setOperator("/");
             }
-        }
+        }*/
+      
     }
 
     function setOperator(operator) {
