@@ -1,28 +1,29 @@
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-@font-face {
+ }
+  
+ @font-face {
   font-family: lcd;
   // src: url(../font/SUBWT___.ttf);
-}
-
-html {
+ }
+  
+ html {
   font-size: 62.5%;
-}
-
-body {
+ }
+  
+ body {
   //  background-image: url('../img/math.jpg');
   background-size: cover;
-}
-
-main {
+ }
+  
+ main {
   padding: 80px;
   margin: auto;
   width: 500px;
-
+  
   input {
     width: 100%;
     font-size: 3.5rem;
@@ -35,66 +36,67 @@ main {
     border: 1px solid yellow;
     border-radius: 4px;
     height: 100px;
-
+  
   }
-
-  section#keyBoard {
+  
+  section#KeyBoard {
     /** Grid eller liknade */
     display: grid;
     grid-template-columns: auto;
-
-
+  
+  
     #add {
       color: #0acee7;
     }
-
+  
     #mul {
-
+  
       color: #0acee7;
     }
-
+  
     #div {
       color: #0acee7;
     }
-
+  
     #sub {
       color: #0acee7;
     }
-
+  
     #enter {
       color: #0acee7;
     }
-
+  
     #clear {
       color: #0acee7;
     }
-
+  
     #comma {
       color: #0acee7;
     }
   }
-
-
-}
-
-#keyBoard>button {
+  
+  
+ }
+  
+ #KeyBoard>button {
   height: auto;
   width: auto;
   font-size: 6rem;
-}
-
-
-@media (max-width: 767px) {
-
-
+ }
+  
+  
+ @media (max-width: 767px) {
+  
+  
   main {
     width: 100vw;
     padding: 20px;
     height: 100vh;
-
+  
   }
-
-
-}
-
-@media (max-width: 339px) {}
+  
+  
+ }
+  
+ @media (max-width: 339px) {}
+ 
