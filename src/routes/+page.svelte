@@ -23,22 +23,30 @@
             clearLCD(); // displayen clearas
             arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
-        } else if (btn === "x") {
+        } 
+        
+        else if (btn === "x") {
             memory = lcd; // memory får värdet av displayen
             clearLCD(); // displayen clearas
             arithmetic = "*"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
-        } else if (btn === "-") {
+        }
+        
+        else if (btn === "-") {
             memory = lcd; // memory får värdet av displayen
             clearLCD(); // displayen clearas
             arithmetic = "-"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
-        } else if (btn === "/") {
+        } 
+        
+        else if (btn === "/") {
             memory = lcd; // memory får värdet av displayen
             clearLCD(); // displayen clearas
             arithmetic = "/"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
-        } else if (btn === "=") {
+        }
+        
+        else if (btn === "=") {
     calculate()        }
     
     }
