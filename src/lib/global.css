@@ -33,34 +33,34 @@ main input {
   border-radius: 4px;
   height: 100px;
 }
-main section#keyBoard {
+main section#KeyBoard {
   /** Grid eller liknade */
   display: grid;
   grid-template-columns: auto;
 }
-main section#keyBoard #add {
+main section#KeyBoard #add {
   color: #0acee7;
 }
-main section#keyBoard #mul {
+main section#KeyBoard #mul {
   color: #0acee7;
 }
-main section#keyBoard #div {
+main section#KeyBoard #div {
   color: #0acee7;
 }
-main section#keyBoard #sub {
+main section#KeyBoard #sub {
   color: #0acee7;
 }
-main section#keyBoard #enter {
+main section#KeyBoard #enter {
   color: #0acee7;
 }
-main section#keyBoard #clear {
+main section#KeyBoard #clear {
   color: #0acee7;
 }
-main section#keyBoard #comma {
+main section#KeyBoard #comma {
   color: #0acee7;
 }
 
-#keyBoard > button {
+#KeyBoard > button {
   height: auto;
   width: auto;
   font-size: 6rem;
