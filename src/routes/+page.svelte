@@ -8,29 +8,41 @@
     let lcd = "";
     let result = "";
 
-    $: console.log({lcd});
-    $: console.log({memory}) ;      
-    $: console.log({result}) ;      
+    $: console.log({ lcd });
+    $: console.log({ memory });
+    $: console.log({ result });
+    $: console.log({ clearLCD });
     function buttonClick(e) {
         let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
-        console.log({btn})
-      if(Number(btn) >= 0 && Number(btn) <10 ){
-           lcd += btn;
-        }
-        else if(btn ==="+"){
+        console.log({ btn });
+        if (Number(btn) >= 0 && Number(btn) < 10) {
+            lcd += btn;
+        } else if (btn === "+") {
             memory = lcd; // memory får värdet av displayen
-                clearLCD(); // displayen clearas
-                arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
-                calculate(arithmetic);
-             
-        }
-
-
-      
+            clearLCD(); // displayen clearas
+            arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
+            calculate(arithmetic);
+        } else if (btn === "x") {
+            memory = lcd; // memory får värdet av displayen
+            clearLCD(); // displayen clearas
+            arithmetic = "*"; //arithmetic får värdet av '+' // se funktion längre ner!
+            calculate(arithmetic);
+        } else if (btn === "-") {
+            memory = lcd; // memory får värdet av displayen
+            clearLCD(); // displayen clearas
+            arithmetic = "-"; //arithmetic får värdet av '+' // se funktion längre ner!
+            calculate(arithmetic);
+        } else if (btn === "/") {
+            memory = lcd; // memory får värdet av displayen
+            clearLCD(); // displayen clearas
+            arithmetic = "/"; //arithmetic får värdet av '+' // se funktion längre ner!
+            calculate(arithmetic);
+        } else if (btn === "=") {
+    calculate()        }
+    
     }
-
-
+;
     function setOperator(operator) {
         switch (
             operator // switch case , ifall .... då ...
@@ -69,7 +81,7 @@
         ) {
             case "+": // om arthimatic = '+',   (se längre upp  där det uppreps)
                 result = Number(memory) + Number(lcd); // varaibelen resultat på värdet av lcd och det gamla värdet som finns i memory. Number() är för att kunna räkna med decimaltal, hade kunnat använt paresInt(), eller paresfloat()
-                lcd= result; // resultatet sätts i lcd displayen.
+                lcd = result; // resultatet sätts i lcd displayen.
                 break;
 
             case "-":
@@ -113,14 +125,17 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet"  href="/home/karam/Skrivbord/WUT/Te3b-WUT2/miniCalc/src/lib/global.css" />
+        <link
+            rel="stylesheet"
+            href="/home/karam/Skrivbord/WUT/Te3b-WUT2/miniCalc/src/lib/global.css"
+        />
     </head>
 
     <body>
         <main>
             <article>
-                <Display display={lcd}/>
-                <Key on:click = {buttonClick} />
+                <Display display={lcd} />
+                <Key on:click={buttonClick} />
             </article>
         </main>
     </body>
