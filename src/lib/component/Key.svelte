@@ -1,6 +1,5 @@
 <script>
     import Display from "./Display.svelte";
-    import { counterValue } from "$lib/stores/counter.js";
 </script>
 
 <section id="KeyBoard">

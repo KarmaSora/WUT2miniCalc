@@ -2,7 +2,6 @@
     import "$lib/global.scss";
     import Display from "$lib/component/Display.svelte";
     import Key from "$lib/component/Key.svelte";
-    import { counterValue } from "$lib/stores/counter.js";
 
     let arithmetic = null;
     let memory = "";
@@ -10,28 +9,27 @@
     let result = "";
 
     $: console.log({lcd});
+    $: console.log({memory}) ;      
     $: console.log({result}) ;      
     function buttonClick(e) {
         let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
         console.log({btn})
-        if( btn === "+"){
-            memory = lcd; // memory får värdet av displayen
-              
-                              
-                result = Number(memory) + Number(lcd); // varaibelen resultat på värdet av lcd och det gamla värdet som finns i memory. Number() är för att kunna räkna med decimaltal, hade kunnat använt paresInt(), eller paresfloat()
-                lcd = result; // resultatet sätts i lcd displayen.
-                
-
-        }
-
-        else if(Number(btn) >= 0 && Number(btn) <10 ){
+      if(Number(btn) >= 0 && Number(btn) <10 ){
            lcd += btn;
+        }
+        else if(btn ==="+"){
+            memory = lcd; // memory får värdet av displayen
+                clearLCD(); // displayen clearas
+                arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
+                calculate(arithmetic);
+             
         }
 
 
       
     }
+
 
     function setOperator(operator) {
         switch (
@@ -99,7 +97,7 @@
 
     /** Rensar display */
     function clearLCD() {
-        lcd = "";
+        lcd = " ";
     }
     /** Rensar allt, reset */
     function memClear() {
