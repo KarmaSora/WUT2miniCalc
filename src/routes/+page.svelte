@@ -23,34 +23,29 @@
             clearLCD(); // displayen clearas
             arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
-        } 
-        
-        else if (btn === "x") {
+        } else if (btn === "x") {
             memory = lcd; // memory får värdet av displayen
             clearLCD(); // displayen clearas
             arithmetic = "*"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
-        }
-        
-        else if (btn === "-") {
+        } else if (btn === "-") {
             memory = lcd; // memory får värdet av displayen
             clearLCD(); // displayen clearas
             arithmetic = "-"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
-        } 
-        
-        else if (btn === "/") {
+        } else if (btn === "/") {
             memory = lcd; // memory får värdet av displayen
             clearLCD(); // displayen clearas
             arithmetic = "/"; //arithmetic får värdet av '+' // se funktion längre ner!
             calculate(arithmetic);
+        } else if (btn === "=") {
+            calculate();
+        } else if (btn === "CL") {
+            clearLCD();
+        } else if (btn === ".") {
+            addComma();
         }
-        
-        else if (btn === "=") {
-    calculate()        }
-    
     }
-;
     function setOperator(operator) {
         switch (
             operator // switch case , ifall .... då ...
@@ -98,7 +93,7 @@
                 break;
 
             case "*":
-                result = Number(lcd) * Number(memory);
+                result = Number(memory) * Number(lcd);
                 lcd = result;
                 break;
 
@@ -112,7 +107,7 @@
 
     function addComma() {
         // en funktion för att tilläga  ett kommatecken till lcd displayen
-        lcd.value += ".";
+        lcd += ".";
     }
 
     /** Rensar display */
