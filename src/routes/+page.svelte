@@ -12,39 +12,80 @@
     $: console.log({ memory });
     $: console.log({ result });
     $: console.log({ clearLCD });
+    $: console.log({ arithmetic });
     function buttonClick(e) {
         let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
         console.log({ btn });
-        if (Number(btn) >= 0 && Number(btn) < 10) {
+        // JAKOB
+        if (Number(btn)) {
             lcd += btn;
-        } else if (btn === "+") {
-            memory = lcd; // memory får värdet av displayen
-            clearLCD(); // displayen clearas
-            arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
-            calculate(arithmetic);
-        } else if (btn === "x") {
-            memory = lcd; // memory får värdet av displayen
-            clearLCD(); // displayen clearas
-            arithmetic = "*"; //arithmetic får värdet av '+' // se funktion längre ner!
-            calculate(arithmetic);
-        } else if (btn === "-") {
-            memory = lcd; // memory får värdet av displayen
-            clearLCD(); // displayen clearas
-            arithmetic = "-"; //arithmetic får värdet av '+' // se funktion längre ner!
-            calculate(arithmetic);
-        } else if (btn === "/") {
-            memory = lcd; // memory får värdet av displayen
-            clearLCD(); // displayen clearas
-            arithmetic = "/"; //arithmetic får värdet av '+' // se funktion längre ner!
-            calculate(arithmetic);
-        } else if (btn === "=") {
-            calculate();
-        } else if (btn === "CL") {
-            clearLCD();
-        } else if (btn === ".") {
-            addComma();
+
+            return;
         }
+
+        if (btn == "=") {
+            calculate();
+
+            return;
+        }
+
+        if (btn === "CL") {
+            if (!lcd) {
+                memory = 0;
+            } else {
+                clearLCD();
+            }
+
+            return;
+        }
+
+        if (btn === ".") {
+            addComma();
+
+            return;
+        }
+
+        if (arithmetic) {
+            console.log("calc");
+            calculate();
+        } else {
+            console.log("set op");
+            memory += lcd;
+        }
+
+        clearLCD();
+
+        arithmetic = btn;
+        // if (Number(btn) >= 0 && Number(btn) < 10) {
+        //     lcd += btn;
+        // } else if (btn === "+") {
+        //     memory = lcd; // memory får värdet av displayen
+        //     clearLCD(); // displayen clearas
+        //     arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
+        //     calculate(arithmetic);
+        // } else if (btn === "x") {
+        //     memory = lcd; // memory får värdet av displayen
+        //     clearLCD(); // displayen clearas
+        //     arithmetic = "*"; //arithmetic får värdet av '+' // se funktion längre ner!
+        //     calculate(arithmetic);
+        // } else if (btn === "-") {
+        //     memory = lcd; // memory får värdet av displayen
+        //     clearLCD(); // displayen clearas
+        //     arithmetic = "-"; //arithmetic får värdet av '+' // se funktion längre ner!
+        //     calculate(arithmetic);
+        // } else if (btn === "/") {
+        //     memory = lcd; // memory får värdet av displayen
+        //     clearLCD(); // displayen clearas
+        //     arithmetic = "/"; //arithmetic får värdet av '+' // se funktion längre ner!
+        //     calculate(arithmetic);
+        // } else if (btn === "=") {
+        //     calculate();
+        // } else if (btn === "CL") {
+        //     clearLCD();
+        // } else if (btn === ".") {
+        //     addComma();
+        // }
     }
     function setOperator(operator) {
         switch (
@@ -79,6 +120,7 @@
      * Beräknar ovh visar resultatet på displayen.
      */
     function calculate() {
+        if (!arithmetic) return;
         switch (
             arithmetic // swich case för arthimatic.
         ) {
@@ -103,16 +145,19 @@
                 break;
             default:
         }
+
+        arithmetic = null;
     }
 
     function addComma() {
+        if (lcd.includes(".")) return;
         // en funktion för att tilläga  ett kommatecken till lcd displayen
         lcd += ".";
     }
 
     /** Rensar display */
     function clearLCD() {
-        lcd = " ";
+        lcd = "";
     }
     /** Rensar allt, reset */
     function memClear() {
