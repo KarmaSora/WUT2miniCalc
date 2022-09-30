@@ -1,14 +1,9 @@
 <script>
-    import { counterValue } from "$lib/stores/counter.js";
-    import Key from "./Key.svelte";
-
-    let lcd = null;
-    let memory = 0;
-    $: memory = lcd;
-    console.log(memory);
-
-
+   import KeyBoard from './Key.svelte';
+ 
+ 
+   export let display = "";
+ 
 </script>
-
-
-    <input type="text" id="lcd" disabled="disabled" />
+ 
+   <input type="text" id="lcd" disabled="disabled" bind:value={display}/>
