@@ -51,7 +51,7 @@
             calculate();
         } else {
             console.log("set op");
-            memory += lcd;
+            memory = lcd;
         }
 
         clearLCD();
@@ -134,7 +134,7 @@
                 lcd = result;
                 break;
 
-            case "*":
+            case "x":
                 result = Number(memory) * Number(lcd);
                 lcd = result;
                 break;
