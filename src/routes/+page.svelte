@@ -13,32 +13,31 @@
     $: console.log({ result });
     $: console.log({ clearLCD });
     $: console.log({ arithmetic });
+
     function buttonClick(e) {
         let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
         console.log({ btn });
-        
+
         // JAKOB
-        if (Number(btn)) {
+          if (Number(btn) >= 0 && Number(btn) < 10) {
             lcd += btn;
-
             return;
-        }
-
+          }
         if (btn == "=") {
             calculate();
-
             return;
         }
 
         if (btn === "CL") {
+            //om lcd  är en tomm sträng " " då skall kodblocket köras
+             //annars om lcd inte är tomm då skall functionen clearLCD() kallas
+             //detta motsvarar memClear då lcd är tom, 
             if (!lcd) {
                 memory = 0;
-            } else {
+            } else {        
                 clearLCD();
             }
-
-            return;
         }
 
         if (btn === ".") {
@@ -47,76 +46,23 @@
             return;
         }
 
-        if (arithmetic) {
-            console.log("calc");
-            calculate();
-        } else {
+
+        //ersättning till mitt orginala setOperator functionen, 
+      
             console.log("set op");
             memory = lcd;
-        }
-
-        clearLCD();
-
-        arithmetic = btn;
+             clearLCD();
+           arithmetic = btn;
         // if (Number(btn) >= 0 && Number(btn) < 10) {
         //     lcd += btn;
-        // } else if (btn === "+") {
-        //     memory = lcd; // memory får värdet av displayen
-        //     clearLCD(); // displayen clearas
-        //     arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
-        //     calculate(arithmetic);
-        // } else if (btn === "x") {
-        //     memory = lcd; // memory får värdet av displayen
-        //     clearLCD(); // displayen clearas
-        //     arithmetic = "*"; //arithmetic får värdet av '+' // se funktion längre ner!
-        //     calculate(arithmetic);
-        // } else if (btn === "-") {
-        //     memory = lcd; // memory får värdet av displayen
-        //     clearLCD(); // displayen clearas
-        //     arithmetic = "-"; //arithmetic får värdet av '+' // se funktion längre ner!
-        //     calculate(arithmetic);
-        // } else if (btn === "/") {
-        //     memory = lcd; // memory får värdet av displayen
-        //     clearLCD(); // displayen clearas
-        //     arithmetic = "/"; //arithmetic får värdet av '+' // se funktion längre ner!
-        //     calculate(arithmetic);
-        // } else if (btn === "=") {
-        //     calculate();
+
         // } else if (btn === "CL") {
         //     clearLCD();
         // } else if (btn === ".") {
         //     addComma();
         // }
     }
-    function setOperator(operator) {
-        switch (
-            operator // switch case , ifall .... då ...
-        ) {
-            case "+": // ifall man klicker på + då ...
-                memory = lcd; // memory får värdet av displayen
-                clearLCD(); // displayen clearas
-                arithmetic = "+"; //arithmetic får värdet av '+' // se funktion längre ner!
-                break;
-
-            case "-":
-                memory = lcd;
-                clearLCD();
-                arithmetic = "-";
-                break;
-
-            case "*":
-                memory = lcd;
-                clearLCD();
-                arithmetic = "*";
-                break;
-
-            case "/":
-                memory = lcd;
-                clearLCD();
-                arithmetic = "/";
-                break;
-        }
-    }
+    
     /**
      * Beräknar ovh visar resultatet på displayen.
      */
@@ -148,9 +94,8 @@
             default:
         }
 
-        arithmetic = null;
+        arithmetic = null; //återställer arthimatic till null/ tar bort värdet av arthimatic efter beräkningen.
     }
-
 
     // en funktion för att tilläga  ett kommatecken till lcd displayen if satsen är till att kontorlera om att det endast kan finnas 1 commatecken
     //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
@@ -164,11 +109,7 @@
         lcd = "";
     }
     /** Rensar allt, reset */
-    function memClear() {
-        memory = 0;
-        arithmetic = null;
-        clearLCD();
-    }
+   
 </script>
 
 <html lang="en">
