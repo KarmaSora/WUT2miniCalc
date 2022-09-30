@@ -17,6 +17,7 @@
         let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
         console.log({ btn });
+        
         // JAKOB
         if (Number(btn)) {
             lcd += btn;
@@ -120,7 +121,8 @@
      * Beräknar ovh visar resultatet på displayen.
      */
     function calculate() {
-        if (!arithmetic) return;
+        //if-satsen kontrolerar att arthmatic har ett värde eller inte. om inte då skall functionen retuneras / inte köras vidare.
+        if (!arithmetic) return; 
         switch (
             arithmetic // swich case för arthimatic.
         ) {
@@ -149,9 +151,11 @@
         arithmetic = null;
     }
 
+
+    // en funktion för att tilläga  ett kommatecken till lcd displayen if satsen är till att kontorlera om att det endast kan finnas 1 commatecken
+    //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
     function addComma() {
-        if (lcd.includes(".")) return;
-        // en funktion för att tilläga  ett kommatecken till lcd displayen
+        if (lcd.includes(".")) return; //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
         lcd += ".";
     }
 
@@ -182,6 +186,9 @@
     <body>
         <main>
             <article>
+                <!--kopplar display med lcd  -->
+                <!--kopplar Key.svelte med onclick functioner till function buttonClick  -->
+
                 <Display display={lcd} />
                 <Key on:click={buttonClick} />
             </article>
