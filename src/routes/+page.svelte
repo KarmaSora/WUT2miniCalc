@@ -20,24 +20,13 @@
         console.log({ btn });
 
         // JAKOB
-          if (Number(btn) >= 0 && Number(btn) < 10) {
+        if (Number(btn) >= 0 && Number(btn) < 10) {
             lcd += btn;
             return;
-          }
+        }
         if (btn == "=") {
             calculate();
             return;
-        }
-
-        if (btn === "CL") {
-            //om lcd  är en tomm sträng " " då skall kodblocket köras
-             //annars om lcd inte är tomm då skall functionen clearLCD() kallas
-             //detta motsvarar memClear då lcd är tom, 
-            if (!lcd) {
-                memory = 0;
-            } else {        
-                clearLCD();
-            }
         }
 
         if (btn === ".") {
@@ -45,14 +34,22 @@
 
             return;
         }
+        if (btn === "CL") {
+            //om lcd  är en tomm sträng " " då skall kodblocket köras
+            //annars om lcd inte är tomm då skall functionen clearLCD() kallas
+            //detta motsvarar memClear då lcd är tom,
+            if (!lcd) {
+                memory = 0;
+            } else {
+                clearLCD();
+            }
+        }
+        //ersättning till mitt orginala setOperator functionen.
+        console.log("set op");
+        memory = lcd;
+        clearLCD();
+        arithmetic = btn;
 
-
-        //ersättning till mitt orginala setOperator functionen, 
-      
-            console.log("set op");
-            memory = lcd;
-             clearLCD();
-           arithmetic = btn;
         // if (Number(btn) >= 0 && Number(btn) < 10) {
         //     lcd += btn;
 
@@ -62,13 +59,13 @@
         //     addComma();
         // }
     }
-    
+
     /**
      * Beräknar ovh visar resultatet på displayen.
      */
     function calculate() {
         //if-satsen kontrolerar att arthmatic har ett värde eller inte. om inte då skall functionen retuneras / inte köras vidare.
-        if (!arithmetic) return; 
+        if (!arithmetic) return;
         switch (
             arithmetic // swich case för arthimatic.
         ) {
@@ -100,7 +97,9 @@
     // en funktion för att tilläga  ett kommatecken till lcd displayen if satsen är till att kontorlera om att det endast kan finnas 1 commatecken
     //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
     function addComma() {
-        if (lcd.includes(".")) return; //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
+        //if (lcd.includes(".")) return;
+        //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
+        //några fel har uppståt vid använding av detta, men koden gör det den ska.
         lcd += ".";
     }
 
@@ -109,7 +108,6 @@
         lcd = "";
     }
     /** Rensar allt, reset */
-   
 </script>
 
 <html lang="en">
