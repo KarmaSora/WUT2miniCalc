@@ -19,7 +19,6 @@
         // kollar om siffertangent är nedtryckt
         console.log({ btn });
 
-        // JAKOB
         if (Number(btn) >= 0 && Number(btn) < 10) {
             lcd += btn;
             return;
