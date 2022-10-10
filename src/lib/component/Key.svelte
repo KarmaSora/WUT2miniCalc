@@ -23,8 +23,6 @@
       <button value="=" on:click>=</button>
       <button value="/" on:click>/</button>
     
-      <button value="del" on:click>del</button>
-
       <button value="CL" style="grid-column: span 4;" on:click>CLEAR</button>
    </section>
    

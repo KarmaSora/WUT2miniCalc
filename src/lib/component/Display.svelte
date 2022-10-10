@@ -1,5 +1,4 @@
 <script>
-   import KeyBoard from './Key.svelte';
  
  
    export let display = "";
