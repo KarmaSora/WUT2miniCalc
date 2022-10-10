@@ -6,15 +6,12 @@
 
 @font-face {
   font-family: lcd;
-  // src: url(../font/SUBWT___.ttf);
 }
-
 html {
   font-size: 62.5%;
 }
 
 body {
-  //  background-image: url('../img/math.jpg');
   background-size: cover;
 }
 
@@ -22,79 +19,57 @@ main {
   padding: 80px;
   margin: auto;
   width: 500px;
-
-  input {
-    width: 100%;
-    font-size: 3.5rem;
-    margin-bottom: 10px;
-    background-color: black;
-    color: green;
-    text-align: right;
-    padding: 10px 4px 10px 4px;
-    font-family: lcd;
-    border: 1px solid yellow;
-    border-radius: 4px;
-    height: 100px;
-
-  }
-
-  section#KeyBoard {
-    /** Grid eller liknade */
-    display: grid;
-    grid-template-columns: auto;
-
-
-    #add {
-      color: #0acee7;
-    }
-
-    #mul {
-
-      color: #0acee7;
-    }
-
-    #div {
-      color: #0acee7;
-    }
-
-    #sub {
-      color: #0acee7;
-    }
-
-    #enter {
-      color: #0acee7;
-    }
-
-    #clear {
-      color: #0acee7;
-    }
-
-    #comma {
-      color: #0acee7;
-    }
-  }
-
-
+}
+main input {
+  width: 100%;
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  background-color: black;
+  color: green;
+  text-align: right;
+  padding: 10px 4px 10px 4px;
+  font-family: lcd;
+  border: 1px solid yellow;
+  border-radius: 4px;
+  height: 100px;
+}
+main section#KeyBoard {
+  /** Grid eller liknade */
+  display: grid;
+  grid-template-columns: auto;
+}
+main section#KeyBoard #add {
+  color: #0acee7;
+}
+main section#KeyBoard #mul {
+  color: #0acee7;
+}
+main section#KeyBoard #div {
+  color: #0acee7;
+}
+main section#KeyBoard #sub {
+  color: #0acee7;
+}
+main section#KeyBoard #enter {
+  color: #0acee7;
+}
+main section#KeyBoard #clear {
+  color: #0acee7;
+}
+main section#KeyBoard #comma {
+  color: #0acee7;
 }
 
-#KeyBoard>button {
+#KeyBoard > button {
   height: auto;
   width: auto;
   font-size: 6rem;
 }
 
-
 @media (max-width: 767px) {
-
-
   main {
     width: 100vw;
     padding: 20px;
     height: 100vh;
-
   }
-
-
-}
-
-@media (max-width: 339px) {}
+}/*# sourceMappingURL=global.css.map */

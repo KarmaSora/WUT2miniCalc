@@ -20,6 +20,7 @@ main {
   margin: auto;
   width: 500px;
 }
+
 main input {
   width: 100%;
   font-size: 3.5rem;
@@ -33,29 +34,37 @@ main input {
   border-radius: 4px;
   height: 100px;
 }
+
 main section#KeyBoard {
   /** Grid eller liknade */
   display: grid;
   grid-template-columns: auto;
 }
+
 main section#KeyBoard #add {
   color: #0acee7;
 }
+
 main section#KeyBoard #mul {
   color: #0acee7;
 }
+
 main section#KeyBoard #div {
   color: #0acee7;
 }
+
 main section#KeyBoard #sub {
   color: #0acee7;
 }
+
 main section#KeyBoard #enter {
   color: #0acee7;
 }
+
 main section#KeyBoard #clear {
   color: #0acee7;
 }
+
 main section#KeyBoard #comma {
   color: #0acee7;
 }
@@ -72,4 +81,4 @@ main section#KeyBoard #comma {
     padding: 20px;
     height: 100vh;
   }
-}/*# sourceMappingURL=global.css.map */
+} /*# sourceMappingURL=global.css.map *//*# sourceMappingURL=global.css.map */
