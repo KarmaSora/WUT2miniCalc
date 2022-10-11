@@ -8,14 +8,19 @@
     let lcd = "";
     let result = "";
 
+
+    //se vilka knappar som trycks och vad som händer med dem.
     // $: console.log({ lcd });
     // $: console.log({ memory });
     // $: console.log({ result });
     // $: console.log({ clearLCD });
     // $: console.log({ arithmetic });
 
+
+    //funktion som ger värdet av den tryckta knappen till btn och sedan kör funktioner/räkning med ifsatser.
+    //return statement är för att koden skall retunera och avbryta.
     function buttonClick(e) {
-        let btn = e.target.value; //id för den tangent som tryckte ner
+        let btn = e.target.value; 
         // kollar om siffertangent är nedtryckt
         //console.log({ btn });
 
@@ -49,14 +54,7 @@
         clearLCD();
         arithmetic = btn;
 
-        // if (Number(btn) >= 0 && Number(btn) < 10) {
-        //     lcd += btn;
-
-        // } else if (btn === "CL") {
-        //     clearLCD();
-        // } else if (btn === ".") {
-        //     addComma();
-        // }
+   
     }
 
     /**
@@ -96,7 +94,7 @@
     // en funktion för att tilläga  ett kommatecken till lcd displayen if satsen är till att kontorlera om att det endast kan finnas 1 commatecken
     //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
     function addComma() {
-        //if (lcd.includes(".")) return;
+        //  kan ha    if (lcd.includes(".")) return;
         //if-satsen göt att om "." finns redan/ includerad då skall functionen returnas / avslutas annars fortsätter den och lägger till ett comma tecken
         //några fel har uppståt vid använding av detta, men koden gör det den ska.
         lcd += ".";
@@ -127,8 +125,8 @@
                 <!--kopplar display med lcd  -->
                 <!--kopplar Key.svelte med onclick functioner till function buttonClick  -->
 
-                <Display display={lcd} />
-                <Key on:click={buttonClick} />
+                <Display display={lcd} /> <!-- kopplar display med lcd-->
+                <Key on:click={buttonClick} />   <!--skickar värdet av den tryckta knappen och kör buttonclick-->
             </article>
         </main>
     </body>
