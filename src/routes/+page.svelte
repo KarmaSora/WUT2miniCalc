@@ -17,7 +17,7 @@
     function buttonClick(e) {
         let btn = e.target.value; //id för den tangent som tryckte ner
         // kollar om siffertangent är nedtryckt
-        console.log({ btn });
+        //console.log({ btn });
 
         if (Number(btn) >= 0 && Number(btn) < 10) {
             lcd += btn;
@@ -44,7 +44,7 @@
             }
         }
         //ersättning till mitt orginala setOperator functionen.
-        console.log("set op");
+       // console.log("set op");
         memory = lcd;
         clearLCD();
         arithmetic = btn;
