@@ -6,6 +6,7 @@
 
 @font-face {
   font-family: lcd;
+  src: url(/font/SUBWT___.ttf);
 }
 html {
   font-size: 62.5%;
@@ -14,14 +15,12 @@ html {
 body {
   background-size: cover;
 }
-
-main {
+body main {
   padding: 80px;
   margin: auto;
   width: 500px;
 }
-
-main input {
+body main input {
   width: 100%;
   font-size: 3.5rem;
   margin-bottom: 10px;
@@ -33,46 +32,6 @@ main input {
   border: 1px solid yellow;
   border-radius: 4px;
   height: 100px;
-}
-
-main section#KeyBoard {
-  /** Grid eller liknade */
-  display: grid;
-  grid-template-columns: auto;
-}
-
-main section#KeyBoard #add {
-  color: #0acee7;
-}
-
-main section#KeyBoard #mul {
-  color: #0acee7;
-}
-
-main section#KeyBoard #div {
-  color: #0acee7;
-}
-
-main section#KeyBoard #sub {
-  color: #0acee7;
-}
-
-main section#KeyBoard #enter {
-  color: #0acee7;
-}
-
-main section#KeyBoard #clear {
-  color: #0acee7;
-}
-
-main section#KeyBoard #comma {
-  color: #0acee7;
-}
-
-#KeyBoard > button {
-  height: auto;
-  width: auto;
-  font-size: 6rem;
 }
 
 @media (max-width: 767px) {

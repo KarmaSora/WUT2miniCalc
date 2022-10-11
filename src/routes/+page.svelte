@@ -8,11 +8,11 @@
     let lcd = "";
     let result = "";
 
-    $: console.log({ lcd });
-    $: console.log({ memory });
-    $: console.log({ result });
-    $: console.log({ clearLCD });
-    $: console.log({ arithmetic });
+    // $: console.log({ lcd });
+    // $: console.log({ memory });
+    // $: console.log({ result });
+    // $: console.log({ clearLCD });
+    // $: console.log({ arithmetic });
 
     function buttonClick(e) {
         let btn = e.target.value; //id för den tangent som tryckte ner
